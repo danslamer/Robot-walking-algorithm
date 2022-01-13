@@ -179,7 +179,7 @@ void InitMotor(void)
 {
 	ReadMoterInfor();//读取舵机控制信息
 	updata_file_list();//更新文件
-	memset(&cur_item,0,sizeof(cur_item));//C 库函数 void *memset(void *str, int c, size_t n) 复制字符 c（一个无符号字符）到参数 str 所指向的字符串的前 n 个字符。
+	memset(&cur_item,0,sizeof(cur_item));//清0，C 库函数,复制字符 c（一个无符号字符）到参数 str 所指向的字符串的前 n 个字符。
 	//beep_mode = motor_data.beep_mode;
 }
 
@@ -202,6 +202,7 @@ void Check_key(void)
 		}
 	}
 }
+//动力检查
 void Check_Power(void)
 {
 		if(flag_adc==1)
@@ -228,7 +229,7 @@ void Check_Power(void)
 
 		}
 }
-
+//手柄检测
 void scan_ps2(void)
 {
 	int  kind = 0;
@@ -342,6 +343,7 @@ void ReadMoterInfor(void)
 	}
 		
 }
+
 void ReadOneCmdInfor(unsigned int addr)
 {
 	memset(&motor_one_cmd,0,sizeof(motor_one_cmd));//清 0
@@ -363,7 +365,7 @@ void ReadOneCmdInfor(unsigned int addr)
 }
 /***************************************************************************************************************
 函 数 名：把舵机信息写到flash中
-功能描述：把舵机信息写到flahs中
+功能描述：把舵机信息写到flash中
 输入参数：无  
 返 回 值：无  
 备    注：
@@ -933,7 +935,7 @@ void vpwm(void)
 
 
 /************************************************************************/
-
+//舵机测试
 #if 0
 void SerVor_Test(void)
 {
@@ -944,6 +946,7 @@ void SerVor_Test(void)
 }
 #endif
 #if 0
+//PS2测试
 void Ps2_Test(void)
 {
 		key = PS2_DataKey();
@@ -957,6 +960,7 @@ void Ps2_Test(void)
 }
 #endif
 #if 1
+//Flash测试,存储元件为W25Q64
 void Flash_Test(void)
 {
 		while(SpiFlashReadID()!=W25Q64)							//检测不到W25Q64

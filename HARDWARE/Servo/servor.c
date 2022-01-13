@@ -1,3 +1,4 @@
+//舵机控制函数文件
 #include "servor.h"
 #include "usart.h"
 #include "delay.h"
@@ -14,6 +15,7 @@ TIM_TimeBaseInitTypeDef TIM_Time1BaseStructure;
 extern uint16 CPWM[MOTOR_NUM];
 extern uint8 flag_vpwm;				//表示到达了该更新pwm[]的时间
 
+//舵机所需GPIO口配置
 void Servor_GPIO_Config(void)	
 {
 	GPIO_InitTypeDef GPIO_InitStructure;	
